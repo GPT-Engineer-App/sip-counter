@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, VStack, Text, Input, Button, HStack, Box } from "@chakra-ui/react";
+import { Container, VStack, Text, Input, Button, HStack, Box, useColorMode } from "@chakra-ui/react";
 import { FaTint } from "react-icons/fa";
 
 const Index = () => {
@@ -14,8 +14,13 @@ const Index = () => {
     }
   };
 
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+      <Button onClick={toggleColorMode} mb={4}>
+        Toggle {colorMode === "light" ? "Dark" : "Light"} Mode
+      </Button>
       <VStack spacing={4}>
         <Text fontSize="2xl">Water Tracker</Text>
         <Text fontSize="lg">Track your daily water intake</Text>
